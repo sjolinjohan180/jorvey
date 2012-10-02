@@ -1,0 +1,34 @@
+<div class="hero-unit">
+    <form action="">
+        <legend>Are you something?</legend>
+        <ul class="unstyled">
+            <li ng-repeat="q in questions">
+                <p>{{q.label}}</p>
+                <span ng-switch="q.qType">
+                    <span ng-switch-when="single">
+                        <span ng-repeat="answer in q.answers">
+                            <input type="radio" value="{{answer.aId}}" ng-model="selectedAnswers[q.qId]" id="{{answer.aId}}" name="group-{{q.qId}}" />
+                            <label for="{{answer.aId}}">
+                                {{answer.label}}
+                            </label>
+                        </span>
+                    </span>
+                    <div ng-switch-when="multi">
+                        <select multiple="true" ng-model="selectedAnswers[q.qId]" name="" id="{{q.qId}}">
+                            <option ng-repeat="answer in q.answers" value="{{answer.aId}}">{{answer.label}}</option>
+                        </select>
+                        <small>Håll inne ctrl (windows) cmd (mac) och clicka för att välja flera alternativ.</small>
+                    </div>
+                </span>
+                <div ng-switch="q.FreeText">
+                    <span ng-switch-when="true">
+                        <label for="freetext-{{q.qId}}">Fri text: </label>
+                        <textarea id="freetext-{{q.qId}}" ng-model="selectedAnswers['question-'+ q.qId + '-freetext']" ></textarea>
+                    </span>
+                </div>
+                <hr />
+            </li>
+        </ul>
+    </form>
+    <code style="position: fixed; left: 500px; top: 50px; font-size: 1.2em;">{{selectedAnswers}}</code>
+</div>
