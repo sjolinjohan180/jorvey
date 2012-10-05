@@ -1,8 +1,14 @@
 <div class="hero-unit">
     <form action="">
         <legend>Are you something?</legend>
+        Sort Questions By :
+        <select ng-model="sortQuestions">
+            <option value="label">Label</option>
+            <option value="qType">Question type</option>
+            <option value="qId">Id</option>
+        </select>
         <ul class="unstyled">
-            <li ng-repeat="q in questions">
+            <li ng-repeat="q in questions | filter:query | orderBy:sortQuestions">
                 <p>{{q.label}}</p>
                 <span ng-switch="q.qType">
                     <span ng-switch-when="single">
