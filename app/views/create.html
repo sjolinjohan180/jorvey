@@ -1,0 +1,32 @@
+<div class="hero-unit">
+    <h1>Create</h1>
+    <a href="" ng-click="addQ()" class="text-success"><i class="icon-plus"></i>Create question</a>
+    <div ng-repeat="q in questions">
+        <h3>Question: {{q.qId}}</h3>
+        <a href="" ng-click="removeQ(q)" class="text-error"><i class="icon-minus"></i>Remove</a>
+        <div>
+            <label for="qtype-{{q.qId}}">Question type</label>
+            <select id="qtype-{{q.qId}}" ng-model="q.qType">
+                <option ng-repeat="type in qTypes" id="{{type.value}}">{{type.label}}</option>
+            </select>
+        </div>
+        <p>
+            <label for="{{q.index}}">Question text:</label><input id="{{q.index}}" required type="text" ng-model="q.value">
+        </p>
+        <label class="checkbox">
+            <input id="freetext-{{q.qId}}" type="checkbox" ng-model="q.freeText" />
+            Free text
+        </label>
+        <div>
+            <a href="" ng-click="addA(q)" class="text-success"><i class="icon-plus-sign"></i>Add answer</a>
+        </div>
+        <div class="well">
+            <div ng-repeat="a in q.answers">
+                <label for="a-{{q.index}}">Answer {{a.index}}</label>
+                <input id="a-{{q.index}}" required type="text" ng-model="a.value">
+                <a href="" ng-click="removeA(q, a)" class="text-error"><i class="icon-minus-sign"></i>Remove</a>
+            </div>
+        </div>
+    </div>
+</div>
+<code style="position: fixed; left: 500px; top: 50px; font-size: 1.2em;">{{questions[0]}}</code>

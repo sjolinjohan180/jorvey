@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "label":"Single option",
+        "value":"single"
+    },
+    {
+        "id": 2,
+        "label":"Multi option",
+        "value":"multi"
+    },
+    {
+        "id": 3,
+        "label":"Free text",
+        "value":"freeText"
+    }
+]
