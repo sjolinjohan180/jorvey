@@ -1,4 +1,6 @@
 <div class="hero-unit">
+    <a href="/#/">Back</a>
+
     <h1>Create</h1>
     <a href="" ng-click="addQ()" class="text-success"><i class="icon-plus"></i>Create question</a>
     <div ng-repeat="q in questions">
@@ -10,9 +12,9 @@
                 <option ng-repeat="type in qTypes" id="{{type.value}}">{{type.label}}</option>
             </select>
         </div>
-        <p>
+        <div>
             <label for="{{q.index}}">Question text:</label><input id="{{q.index}}" required type="text" ng-model="q.value">
-        </p>
+        </div>
         <label class="checkbox">
             <input id="freetext-{{q.qId}}" type="checkbox" ng-model="q.freeText" />
             Free text

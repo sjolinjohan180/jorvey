@@ -1,4 +1,5 @@
 <div class="hero-unit">
+    <a href="/#/create">Create survey</a>
     <form action="">
         <legend>Are you something?</legend>
         Sort Questions By :
@@ -13,8 +14,8 @@
                 <span ng-switch="q.qType">
                     <span ng-switch-when="single">
                         <span ng-repeat="answer in q.answers">
-                            <input type="radio" value="{{answer.aId}}" ng-model="selectedAnswers[q.qId]" id="{{answer.aId}}" name="group-{{q.qId}}" />
-                            <label for="{{answer.aId}}">
+                            <input type="radio" value="{{answer.aId}}" ng-model="selectedAnswers[q.qId]" id="{{q.qId}}-{{answer.aId}}" name="group-{{q.qId}}" />
+                            <label for="{{q.qId}}-{{answer.aId}}">
                                 {{answer.label}}
                             </label>
                         </span>
